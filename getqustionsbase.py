@@ -26,5 +26,5 @@ def   visitonepage(htmls,len,i):
           file.write(img['src']+'\n')				 
       file.close()
 def   main():
-      for id in range(1000,1001):
+      for id in range(1000,5933):
           visitonepage(getonehtml(id),0,0)
