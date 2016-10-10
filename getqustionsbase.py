@@ -13,7 +13,7 @@ def   visitonepage(htmls,len,i):
       soup_span=soup.find(attrs={'style':'font-family:Arial;font-size:12px;font-weight:bold;color:green'})
       soup_panel_title=soup.find_all(attrs={'class':'panel_title','align':'left'})
       soup_panel_content=soup.find_all(attrs={'class':'panel_content'})  
-      soup_img=soup.find_all('img',attrs={}) 
+      soup_img=soup.find_all('img') 
       file.write(soup_title.get_text()+'\n'+soup_h1.get_text()+'\n'+soup_span.get_text())
       for so in soup_panel_content:
           len=len+1    
