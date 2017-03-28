@@ -1,0 +1,16 @@
+<ion-view view-title="地图" class="map">
+
+    <ion-content scroll="false">
+        <div class="item-input-inset">
+            <label class="item-input-wrapper">
+                <i class="icon ion-ios-search placeholder-icon"></i>
+                <input id="keyword" type="search" ng-model="start.p" placeholder="输入地址">
+            </label>
+            <a class="button button-clear button-positive" href="#/tabs/callCar/place/{{ place }}" ng-click="sub2()">
+                确定
+            </a>
+        </div>
+
+        <div id="container"></div>
+    </ion-content>
+</ion-view>
