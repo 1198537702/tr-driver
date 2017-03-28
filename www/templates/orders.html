@@ -1,0 +1,45 @@
+<ion-view view-title="找货" class="orders">
+
+  <ion-content>
+
+    <ion-list>
+      <ion-item>
+        <a  href="#/tabs/orders/detail">
+
+          <div>
+            <span class="time">xxxxx{{ order.orderTime }}</span>
+            <span class="state">xxxxxx{{ order.vehicleType }}</span>
+          </div>
+          <div class="route">
+            <div>
+              <span class="">
+                  起点：
+              </span>
+              <span>
+                xxxxx{{ order.start }}
+              </span>
+              <div></div>
+              <span class="">
+                  终点：
+              </span>
+              <span>
+                xxxxx{{ order.end }}
+              </span>
+            </div>
+            <span class="cost">xxxxx{{ order.pay }}元</span>
+
+          </div>
+          <div class="remark">
+              <span class="mytitle">
+                  备注：
+              </span>
+              <span class="text">
+                xxxxx{{ order.remark }}
+              </span>
+          </div>
+        </a>
+
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

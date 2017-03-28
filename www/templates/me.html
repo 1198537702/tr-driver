@@ -1,0 +1,34 @@
+<ion-view view-title="我">
+    <ion-content class="me"  scroll="false">
+        <ion-item class="callCar-dt" ng-click="login()">
+            <img src="../img/user.png">
+            <div class="user">
+                <span class="t">
+                     完善个人信息>
+                </span>
+
+                <p>
+                    {{ tell }}
+                </p>
+                <span>
+                    未认证
+                </span>
+            </div>
+        </ion-item>
+        <ion-item class="iitem callCar-dt">
+            <span>我的钱包</span>
+        </ion-item>
+        <ion-item class="iitem callCar-dt">
+            <span>建议反馈</span>
+        </ion-item>
+        <ion-item class="iitem">
+            <span>收费标准</span>
+        </ion-item>
+        <ion-item class="iitem">
+            <span>联系客服</span>
+        </ion-item>
+        <ion-item class="iitem" ng-click="logout()">
+            <span>退出登录</span>
+        </ion-item>
+    </ion-content>
+</ion-view>
