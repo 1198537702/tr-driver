@@ -10,11 +10,11 @@
                 </div>
                 <div class="place">
                   <span>
-                      xxx{{ $root.newOrder.start.p }}
+                      {{ order.start }}
                   </span>
                   <div></div>
                   <span>
-                      xxxx{{ $root.newOrder.start.dp }}
+                      {{ order.startDetail }}
                   </span>
 
                 </div>
@@ -26,11 +26,11 @@
                 </div>
                 <div class="place">
                   <span>
-                      xxxx{{ $root.newOrder.end.p }}
+                      {{ order.end }}
                   </span>
                 <div></div>
                 <span>
-                    xxx{{ $root.newOrder.end.dp }}
+                    {{ order.endDetail }}
                 </span>
 
               </div>
@@ -41,32 +41,32 @@
                         时间：
                     </span>
                 <span>
-                        xxxx{{ $root.newOrder.time }}
+                        {{ order.transportTime }}
                 </span>
                 <div></div>
                 <span class="">
                         车型：
                     </span>
                 <span>
-                        xxx{{ $root.newOrder.carType }}
+                        {{ order.vehicleType }}
                 </span>
                 <div></div>
                 <span class="">
                         额外需求：
                     </span>
                 <span>
-                        xxxx{{ ad }}
+                        {{ order.ad }}
                 </span>
                 <div></div>
                 <span>
                         备注：
                     </span>
                 <span class="remark">
-                        xxxx{{ $root.newOrder.remark }}
+                        {{ order.remark }}
                 </span>
             </div>
             <div class="cost">
-                <span class="num">xxxx{{ $root.newOrder.pay }}</span>
+                <span class="num">{{ order.pay }}</span>
                 <span>元</span>
             </div>
         </ion-item>
@@ -80,9 +80,9 @@
             </span>
             <div class="info">
                 <div class="myitem">
-                    <span class="">
+                    <span class="s">
                     <i class="icon ion-android-person"></i>
-                      XXX
+                      {{ order.contactsName }}
                     </span>
 
                     <a class="button button-icon ion-ios-telephone"></a>

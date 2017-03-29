@@ -7,7 +7,7 @@
 define(['controllers/controllers'], function () {
   'use strict';
 
-  var app = angular.module('starter', ['ionic', 'starter.controllers', 'starter.services']);
+  var app = angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova']);
 
   app.run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -77,14 +77,26 @@ define(['controllers/controllers'], function () {
           }
         })
         .state('tabs.orderDtail', {
-          url: '/orders/detail',
-          params: {'orderid': null},
+          url: '/orders/:orderId',
           views: {
             'orders': {
               templateUrl: 'templates/order-detail.html',
               controller: 'OrdersDetailCtrl',
               resolve: {
                 deps: app.loadControllerJs('./controllers/OrdersDetailCtrl')
+              }
+            }
+          }
+        })
+        .state('tabs.orderInProgress', {
+          url: '/order/orderInProgress',
+          params: {'orderid': null},
+          views: {
+            'orders': {
+              templateUrl: 'templates/orderInProgress.html',
+              controller: 'OrderInProgressCtrl',
+              resolve: {
+                deps: app.loadControllerJs('./controllers/OrderInProgressCtrl')
               }
             }
           }
@@ -191,19 +203,6 @@ define(['controllers/controllers'], function () {
             }
           }
         })
-        .state('tabs.orderInProgress', {
-          url: '/order/orderInProgress',
-          params: {'orderid': null},
-          views: {
-            'orders': {
-              templateUrl: 'templates/orderInProgress.html',
-              controller: 'OrderInProgressCtrl',
-              resolve: {
-                deps: app.loadControllerJs('./controllers/OrderInProgressCtrl')
-              }
-            }
-          }
-        })
 
         .state('tabs.me', {
           url: '/me',
@@ -224,33 +223,9 @@ define(['controllers/controllers'], function () {
           views: {
             'me': {
               templateUrl: 'templates/authentication.html',
-              controller: 'AppCtrl',
+              controller: 'AuthenticationCtrl',
               resolve: {
-                deps: app.loadControllerJs('./controllers/AppCtrl')
-              }
-
-            }
-          }
-        })
-
-        .state('tabs.browse', {
-          url: '/browse',
-          views: {
-            'menuContent': {
-              templateUrl: 'templates/browse.html'
-            }
-          }
-        })
-
-
-        .state('tabs.single', {
-          url: '/playlists/:playlistId',
-          views: {
-            'menuContent': {
-              templateUrl: 'templates/playlist.html',
-              controller: 'PlaylistCtrl',
-              resolve: {
-                deps: app.loadControllerJs('./controllers/PlaylistCtrl')
+                deps: app.loadControllerJs('./controllers/AuthenticationCtrl')
               }
 
             }

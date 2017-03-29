@@ -3,12 +3,12 @@
   <ion-content>
 
     <ion-list>
-      <ion-item>
-        <a  href="#/tabs/orders/detail">
+      <ion-item ng-repeat="order in orderList">
+        <a  href="#/tabs/orders/{{ order.id }}">
 
           <div>
-            <span class="time">xxxxx{{ order.orderTime }}</span>
-            <span class="state">xxxxxx{{ order.vehicleType }}</span>
+            <span class="time">{{ order.orderTime }}</span>
+            <span class="state">{{ order.vehicleType }}</span>
           </div>
           <div class="route">
             <div>
@@ -16,17 +16,17 @@
                   起点：
               </span>
               <span>
-                xxxxx{{ order.start }}
+                {{ order.start }}
               </span>
               <div></div>
               <span class="">
                   终点：
               </span>
               <span>
-                xxxxx{{ order.end }}
+                {{ order.end }}
               </span>
             </div>
-            <span class="cost">xxxxx{{ order.pay }}元</span>
+            <span class="cost">{{ order.pay }}元</span>
 
           </div>
           <div class="remark">
@@ -34,7 +34,7 @@
                   备注：
               </span>
               <span class="text">
-                xxxxx{{ order.remark }}
+                {{ order.remark }}
               </span>
           </div>
         </a>

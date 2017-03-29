@@ -1,0 +1,110 @@
+<ion-view view-title="订单详情" class="orders-detail">
+
+    <ion-content>
+
+        <ion-item>
+            <div class="route">
+              <div class="tips">运送中</div>
+              <div>
+                <div class="t">
+                    起点：
+                </div>
+                <div class="place">
+                  <span>
+                      xxx{{ $root.newOrder.start.p }}
+                  </span>
+                  <div></div>
+                  <span>
+                      xxxx{{ $root.newOrder.start.dp }}
+                  </span>
+
+                </div>
+
+              </div>
+              <div>
+                <div class="t">
+                        终点：
+                </div>
+                <div class="place">
+                  <span>
+                      xxxx{{ $root.newOrder.end.p }}
+                  </span>
+                <div></div>
+                <span>
+                    xxx{{ $root.newOrder.end.dp }}
+                </span>
+
+              </div>
+
+              </div>
+                <div></div>
+                <span class="">
+                        时间：
+                    </span>
+                <span>
+                        xxxx{{ $root.newOrder.time }}
+                </span>
+                <div></div>
+                <span class="">
+                        车型：
+                    </span>
+                <span>
+                        xxx{{ $root.newOrder.carType }}
+                </span>
+                <div></div>
+                <span class="">
+                        额外需求：
+                    </span>
+                <span>
+                        xxxx{{ ad }}
+                </span>
+                <div></div>
+                <span>
+                        备注：
+                    </span>
+                <span class="remark">
+                        xxxx{{ $root.newOrder.remark }}
+                </span>
+            </div>
+            <div class="cost">
+                <span class="num">xxxx{{ $root.newOrder.pay }}</span>
+                <span>元</span>
+            </div>
+        </ion-item>
+        <div id="container">
+
+        </div>
+
+        <ion-item class="">
+            <span class="">
+                联系人信息：
+            </span>
+            <div class="info">
+                <div class="myitem">
+                    <span class="s">
+                    <i class="icon ion-android-person"></i>
+                      XXX
+                    </span>
+
+                </div>
+
+            </div>
+        </ion-item>
+        <ion-item class="paddingtop">
+            <span class="">
+                评价：
+            </span>
+            <div class="stars">
+                <a id="1" class="button button-icon ion-android-star"></a>
+                <a id="2" class="button button-icon ion-android-star"></a>
+                <a id="3" class="button button-icon ion-android-star"></a>
+                <a id="4" class="button button-icon ion-android-star"></a>
+                <a id="5" class="button button-icon ion-android-star"></a>
+            </div>
+            <div class="content">
+            </div>
+
+        </ion-item>
+
+    </ion-content>
+</ion-view>

@@ -1,19 +1,48 @@
 <ion-view view-title="身份认证">
     <ion-content class="rz" scroll="false">
-        <div class="content">
-            <a>
-              <i class="icon ion-person"></i>
-              <p>驾驶员信息</p>
-            </a>
-            <a></a>
-            <a>
-              <i class="icon ion-android-car"></i>
-              <p>车辆信息</p>
-            </a>
-        </div>
-        <button class="button button-small button-balanced" ng-click="sub()">
-            申 请 认 证
-        </button>
+        <ion-item class="iitem callCar-dt" ng-click="pickImage()">
+            <span>头像</span>
+            <img src="{{ driver.headImg }}">
+        </ion-item>
+        <ion-item class="iitem callCar-dt">
+            <span>驾驶证</span>
+            <img src="{{ driver.driverLicenceImg }}">
+        </ion-item>
+        <ion-item class="iitem callCar-dt">
+            <span>姓名</span>
+            <input type="text" ng-model="driver.name">
+        </ion-item>
+        <ion-item class="iitem">
+            <span class="item-title">
+                身份证号：
+            </span>
+            <input type="text" ng-model="driver.certificateOfIdentification">
+        </ion-item>
+        <ion-item class="iitem">
+            <span class="item-title">
+                手机号：
+            </span>
+            <input type="text" ng-model="driver.tell">
+        </ion-item>
+        <ion-item class="iitem">
+            <span class="item-title">
+                车牌号码：
+            </span>
+            <input type="text" ng-model="driver.LicensePlate">
+        </ion-item>
+        <ion-item class="iitem">
+            <span class="item-title">
+                车型：
+            </span>
+            <input type="text" ng-model="driver.vehicleType">
+        </ion-item>
+        <ion-item class="iitem callCar-dt">
+            <span>行驶证</span>
+            <img src="{{ drivingLicenceImg }}">
+        </ion-item>
 
+        <ion-item class="iitem" ng-click="logout()">
+            <span>退出登录</span>
+        </ion-item>
     </ion-content>
 </ion-view>
