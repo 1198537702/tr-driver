@@ -3,7 +3,7 @@
  background-color: #fcfcfc;
 }
 ion-content{
-  background-color: #ececec;
+  background-color: #f2f2f2;
   padding-top: 15px;
   overflow: hidden;
 }
@@ -86,6 +86,19 @@ a{text-decoration:none}
   font-size: 16px;
 }
 
+.orders-detail ion-item:nth-child(1){
+  margin-top: 5px;
+}
+.orders-detail .n{
+  margin: 8px 0px;
+}
+.orders-detail .n span{
+  margin-left: 15px;
+}
+.orders-detail .n i{
+  float: right;
+  margin-right: -10px;
+}
 .orders-detail .route{
   line-height: 30px;
   margin-bottom: 8px;
@@ -178,6 +191,13 @@ a{text-decoration:none}
 }
 .cost .num{
   font-size: 40px;
+}
+.orders .empty-msg{
+  position: absolute;
+  margin-top: 30px;
+  width: 100%;
+  text-align: center;
+  color: #7f7f7f;
 }
 .orders .tabs{
   height: 35px;
@@ -278,6 +298,19 @@ a{text-decoration:none}
   border-radius: 33px;
   vertical-align: bottom;
   flex: none;
+  position: relative;
+  z-index: 2000;
+
+}
+.me i{
+  line-height: 66px;
+  width: 66px;
+  position: absolute;
+  z-index: 10;
+  display: inline-block;
+  font-size: 50px;
+  text-align: center;
+  color: #919191;
 }
 .me ion-item:nth-child(1){
   display: flex;
@@ -287,13 +320,14 @@ a{text-decoration:none}
   display: inline-block;
   line-height: 25px;
   flex: 1;
+  font-size: 15px;
 }
 .me .user p{
-  font-size: 18px;
+  font-size: 17px;
   padding-top: 10px;
 }
 .me .user .t{
-  font-size: 14px;
+  font-size: 13px;
   float: right;
   color: #b7b7b7;
 }
@@ -315,6 +349,43 @@ a{text-decoration:none}
 }
 .login .button-block{
 margin-top: 50px;
+}
+.rz img{
+  height: 50px;
+  width: 50px;
+  margin-right: 15px;
+
+}
+.rz ion-item i{
+  display: inline-block;
+  height: 50px;
+  vertical-align: top;
+  line-height: 50px;
+}
+.rz ion-item div{
+  display: inline-block;
+  float: right;
+  margin-right: 10px;
+}
+img:not([src]){
+  opacity: 0;
+}
+.rz .img-item{
+  padding: 8px 15px;
+}
+.rz .img-item span{
+  display: inline-block;
+  margin-top: 7px;
+}
+.rz .mt{
+  margin-top: 8px;
+}
+.rz .button-balanced{
+  font-size: 16px;
+  height: 40px;
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 15px;
 }
 
 

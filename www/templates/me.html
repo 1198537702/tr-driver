@@ -1,17 +1,18 @@
 <ion-view view-title="我">
     <ion-content class="me"  scroll="false">
         <ion-item class="callCar-dt" ng-click="login()">
-            <img src="{{img}}">
+            <img src="{{ user.headPortrait }}">
+            <i class="icon ion-android-person"></i>
             <div class="user">
                 <span class="t">
-                     完善个人信息>
+                     {{ msg2 }}
                 </span>
 
                 <p>
-                    {{ tell }}
+                    {{ $root.user.tell }}
                 </p>
                 <span>
-                    未认证
+                    {{ $root.user.status }}
                 </span>
             </div>
         </ion-item>

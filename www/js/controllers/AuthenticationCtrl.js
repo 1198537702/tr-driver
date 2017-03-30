@@ -4,51 +4,54 @@
 define(['app'], function (app) {
   'use strict';
 
-  function ctrl($scope, $rootScope, $state, $cordovaImagePicker) {
-
+  function ctrl($scope, $rootScope, $state, $cordovaImagePicker, $cordovaFileTransfer, Tool) {
+    $scope.images = {};
     $scope.driver = {};
-    //image picker
-    $scope.pickImage = function () {
+    function upImage(imageUrl, type) {
+
+      document.addEventListener('deviceready', function () {
+        var url = Tool.uploadDriverImgURL();
+        var options = new FileUploadOptions();
+        options.fileKey = "file";
+        options.fileName = $rootScope.user.tell + '_' + type;
+        var params = {};
+        params.id = $rootScope.user.tell;
+        params.type = $rootScope.user.type;
+        options.params = params;
+
+        $cordovaFileTransfer.upload(url, imageUrl, {}, true)
+          .then(function (result) {
+          }, function (err) {
+          }, function (progress) {
+            // constant progress updates
+          });
+
+
+      }, false);
+
+    }
+
+    $scope.pickImage = function (type) {
       var options = {
         maximumImagesCount: 1,
-        width: 800,
-        height: 800,
-        quality: 80
+        width: 80,
+        height: 80,
+        quality: 100
       };
 
       $cordovaImagePicker.getPictures(options)
         .then(function (results) {
-          $scope.images_list.push(results[0]);
-          upImage(results[0]);
+          $scope.images[type] = results[0];
+          upImage(results[0], type);
         }, function (error) {
           // error getting photos
         });
     };
 
 
-    var upImage = function (imageUrl) {
-      document.addEventListener('deviceready', function () {
-        var url = "http://192.168.1.248/api/UserInfo/PostUserHead";
-        var options = {};
-        $cordovaFileTransfer.upload(url, imageUrl, options)
-          .then(function (result) {
-            alert(JSON.stringify(result.response));
-            alert("success");
-            alert(result.message);
-          }, function (err) {
-            alert(JSON.stringify(err));
-            alert(err.message);
-            alert("fail");
-          }, function (progress) {
-            // constant progress updates
-          });
-
-      }, false);
-    }
-
   }
 
-  ctrl.$inject = ['$scope', '$rootScope', '$state', '$cordovaImagePicker'];
+  ctrl.$inject = ['$scope', '$rootScope', '$state', '$cordovaImagePicker', '$cordovaFileTransfer', 'Tool'];
   app.registerController('AuthenticationCtrl', ctrl);
   // return ctrl;
 

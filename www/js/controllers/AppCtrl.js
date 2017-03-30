@@ -4,7 +4,7 @@
 define(['app', 'jquery'], function (app) {
   'use strict';
 
-  function ctrl($scope, $ionicModal, $http, $rootScope, $state) {
+  function ctrl($scope, $ionicModal, $http, $rootScope, $state, Tool) {
 
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
@@ -17,13 +17,14 @@ define(['app', 'jquery'], function (app) {
     var userStr = localStorage.getItem('user');
 
     $scope.loginData = {};
-    $scope.msg = '';
+    $scope.msg2 = '完善个人信息 >';
     if(userStr == null){
       $scope.tell = '登录';
     }else {
       $rootScope.user = JSON.parse(userStr);
-
-      $scope.tell = $rootScope.user.tell;
+      if($rootScope.user.status == '已认证'){
+        $scope.msg2 = '';
+      }
     }
     // Create the login modal that we will use later
     $ionicModal.fromTemplateUrl('templates/login.html', {
@@ -57,10 +58,14 @@ define(['app', 'jquery'], function (app) {
         if (data.msg != 'success') {
           $scope.msg = data.msg;
         }else {
+          data.user.headPortrait = Tool.getStaticFilesURL() + data.user.headPortrait;
+          data.user.driversLicence = Tool.getStaticFilesURL()+ data.user.driversLicence;
+          data.user.drivingLicence = Tool.getStaticFilesURL()+ data.user.drivingLicence;
           var ob = JSON.stringify(data.user);
           localStorage.setItem('user', ob);
           $rootScope.user = data.user;
           $scope.tell = data.user.tell;
+          userStr = localStorage.getItem('user');
           $scope.modal.hide();
 
         }
@@ -75,7 +80,7 @@ define(['app', 'jquery'], function (app) {
     }
   }
 
-  ctrl.$inject = ['$scope', '$ionicModal', '$http', '$rootScope', '$state'];
+  ctrl.$inject = ['$scope', '$ionicModal', '$http', '$rootScope', '$state', 'Tool'];
   app.registerController('AppCtrl', ctrl);
   // return ctrl;
 });

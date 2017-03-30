@@ -1,48 +1,58 @@
 <ion-view view-title="身份认证">
-    <ion-content class="rz" scroll="false">
-        <ion-item class="iitem callCar-dt" ng-click="pickImage()">
+    <ion-content class="rz">
+        <ion-item class="img-item mt" ng-click="pickImage('headPortrait')">
             <span>头像</span>
-            <img src="{{ driver.headImg }}">
+          <div>
+            <img src="{{ images.headPortrait }}">
+            <i class="icon ion-chevron-right"></i>
+          </div>
+
         </ion-item>
-        <ion-item class="iitem callCar-dt">
+        <ion-item class="img-item" ng-click="pickImage('driversLicence')">
             <span>驾驶证</span>
-            <img src="{{ driver.driverLicenceImg }}">
+            <div>
+              <img src="{{ images.driversLicence }}">
+              <i class="icon ion-chevron-right"></i>
+            </div>
         </ion-item>
-        <ion-item class="iitem callCar-dt">
-            <span>姓名</span>
+        <ion-item class="item-input ">
+            <span>姓名:</span>
             <input type="text" ng-model="driver.name">
         </ion-item>
-        <ion-item class="iitem">
+        <ion-item class="item-input">
             <span class="item-title">
                 身份证号：
             </span>
             <input type="text" ng-model="driver.certificateOfIdentification">
         </ion-item>
-        <ion-item class="iitem">
+        <ion-item class="item-input">
             <span class="item-title">
                 手机号：
             </span>
             <input type="text" ng-model="driver.tell">
         </ion-item>
-        <ion-item class="iitem">
+        <ion-item class="item-input mt">
             <span class="item-title">
                 车牌号码：
             </span>
             <input type="text" ng-model="driver.LicensePlate">
         </ion-item>
-        <ion-item class="iitem">
+        <ion-item class="item-input">
             <span class="item-title">
                 车型：
             </span>
             <input type="text" ng-model="driver.vehicleType">
         </ion-item>
-        <ion-item class="iitem callCar-dt">
+        <ion-item class="img-item" ng-click="pickImage('drivingLicence')">
             <span>行驶证</span>
-            <img src="{{ drivingLicenceImg }}">
+            <div>
+              <img src="{{ images.drivingLicence }}">
+              <i class="icon ion-chevron-right"></i>
+            </div>
         </ion-item>
+        <button class="button button-small button-balanced" ng-click="sub()">
+            申 请 验 证
+        </button>
 
-        <ion-item class="iitem" ng-click="logout()">
-            <span>退出登录</span>
-        </ion-item>
     </ion-content>
 </ion-view>

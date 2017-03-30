@@ -115,90 +115,27 @@ define(['controllers/controllers'], function () {
           }
         })
 
-        .state('tabs.map', {
-          url: '/callCar/map/:place',
-          views: {
-            'callCar': {
-              templateUrl: 'templates/map.html',
-              controller: 'MapCtrl',
-              resolve: {
-                deps: app.loadControllerJs('./controllers/MapCtrl')
-              }
-            }
-          }
-        })
 
-        .state('tabs.remark', {
-          url: '/callCar/remark',
-          views: {
-            'callCar': {
-              templateUrl: 'templates/remark.html',
-              controller: 'RemarkCtrl',
-              resolve: {
-                deps: app.loadControllerJs('./controllers/RemarkCtrl')
-              }
-            }
-          }
-        })
-
-        .state('tabs.type', {
-          url: '/callCar/type',
-          views: {
-            'callCar': {
-              templateUrl: 'templates/carType.html',
-              controller: 'CarTypeCtrl',
-              resolve: {
-                deps: app.loadControllerJs('./controllers/CarTypeCtrl')
-              }
-            }
-          }
-        })
-        .state('tabs.additionalDemand', {
-          url: '/callCar/additionalDemand',
-          views: {
-            'callCar': {
-              templateUrl: 'templates/additionalDemand.html',
-              controller: 'ADCtrl',
-              resolve: {
-                deps: app.loadControllerJs('./controllers/ADCtrl')
-              }
-            }
-          }
-        })
-        .state('tabs.orderConfirm', {
-          url: '/callCar/orderConfirm',
-          views: {
-            'callCar': {
-              templateUrl: 'templates/orderConfirm.html',
-              controller: 'OrderConfirmCtrl',
-              resolve: {
-                deps: app.loadControllerJs('./controllers/OrderConfirmCtrl')
-              }
-            }
-          }
-        })
-
-        .state('tabs.orderSending', {
-          url: '/callCar/orderSending',
-          views: {
-            'callCar': {
-              templateUrl: 'templates/orderSending.html',
-              controller: 'OrderSendingCtrl',
-              resolve: {
-                deps: app.loadControllerJs('./controllers/OrderSendingCtrl')
-              }
-            }
-          }
-        })
-
-        .state('tabs.order', {
-          url: '/order',
+        .state('tabs.orderFinishedList', {
+          url: '/orderFinishedList',
           views: {
             'order': {
-              templateUrl: 'templates/order.html',
+              templateUrl: 'templates/orderFinishedList.html',
               controller: 'OrderCtrl',
               resolve: {
                 deps: app.loadControllerJs('./controllers/OrderCtrl')
+              }
+            }
+          }
+        })
+        .state('tabs.orderFinished', {
+          url: '/orderFinishedList/:orderId',
+          views: {
+            'order': {
+              templateUrl: 'templates/orderFinished.html',
+              controller: 'OrderFinishedCtrl',
+              resolve: {
+                deps: app.loadControllerJs('./controllers/OrderFinishedCtrl')
               }
             }
           }

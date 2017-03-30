@@ -1,15 +1,14 @@
-
 <ion-view view-title="找货" class="orders">
 
   <ion-content>
-
+    <div class="empty-msg">{{ msg }}</div>
     <ion-list>
       <ion-item ng-repeat="order in orderList">
-        <a  href="#/tabs/orders/{{ order.id }}">
+        <a  href="#/tabs/orderFinishedList/{{ order.id }}">
 
           <div>
-            <span class="time">{{ order.transportTime }}</span>
-            <span class="state">{{ order.vehicleType }}</span>
+            <span class="time">{{ order.orderTime }}</span>
+            <span class="state">{{ order.orderStatus }}</span>
           </div>
           <div class="route">
             <div>

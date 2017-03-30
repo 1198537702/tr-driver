@@ -1,19 +1,22 @@
-/**
- * Created by 黄炳乾 on 2017/2/25.
- */
 define(['app'], function (app) {
   'use strict';
 
-  function ctrl($scope, $rootScope, $state, $http, Tool, $stateParams) {
+  function ctrl($scope, $rootScope, $state, $http, Tool, $stateParams, $ionicPopup) {
 
     $scope.$on("$ionicView.beforeEnter", function () {
-    $scope.order = Tool.getOrderById($stateParams.orderId);
+      $scope.order = Tool.getOrderById($stateParams.orderId);
+      var map = new AMap.Map('container', {
+        resizeEnable: true,
+        dragEnable: false,
+        zoomEnable: false
+      });
+
       var driving = new AMap.Driving({
         map: map
       });
       driving.search([
-        {keyword: $scope.order.start.p, city: '杭州'},
-        {keyword: $scope.order.end.p, city: '杭州'}
+        {keyword: $scope.order.start, city: '杭州'},
+        {keyword: $scope.order.end, city: '杭州'}
       ]);
 
     });
@@ -33,9 +36,9 @@ define(['app'], function (app) {
         data,
         Tool.getPostCfg()
       ).success(function (data) {
-          $ionicPopup.alert({
-            title: '接单成功'
-          });
+        $ionicPopup.alert({
+          title: '接单成功'
+        });
       }).error(function (data, status, headers, config) {
 
       });
@@ -45,7 +48,7 @@ define(['app'], function (app) {
     }
   }
 
-  ctrl.$inject = ['$scope', '$rootScope', '$state', '$http', 'Tool', '$stateParams'];
+  ctrl.$inject = ['$scope', '$rootScope', '$state', '$http', 'Tool', '$stateParams', '$ionicPopup'];
   app.registerController('OrdersDetailCtrl', ctrl);
   // return ctrl;
 
